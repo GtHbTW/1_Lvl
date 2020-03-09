@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Main {
+
+    int numerWyboru;
+
+    int getNumerWyboru() {
+        return numerWyboru;
+    }
+
+
+
+    void powitaniePierwsze() {
+        System.out.println("  Witamy w aplikacji bankowej Naszego Banku");
+        System.out.println(" ");
+        System.out.println(" Aby zalogować się, Wybierz na klawiaturze 1 i zatwierdź przyciskiem enter.");
+        System.out.println(" Aby wyłączyć aplikację, wciśnij na klawiaturze 2 i zatwierdź przyciskiem enter.");
+    }
+
+
+    void wczytajNumerWyboru() {
+        try {
+            Scanner scan = new Scanner(System.in);
+            this.numerWyboru = scan.nextInt();
+            if (numerWyboru == 1) {
+                System.out.print("Numer Twojego wyboru: " + getNumerWyboru());
+                // >> teraz przejscie do zalogowanego
+            } else if (numerWyboru == 2) {
+                System.out.println("Numer Twojego wyboru: " + getNumerWyboru());
+                System.out.println("Wybrano zakończenie programu.Do widzenia");
+                System.exit(0);
+            } else if (numerWyboru != 1 || numerWyboru != 2) {
+                System.out.println("Wprowadzone zły znak  (Wybierz 1 lub 2 !)");
+                wczytajNumerWyboru();
+            }
+        }
+        catch(Exception e) {
+                   System.out.println("Wprowadzono niewłaściwy znak.");
+                   wczytajNumerWyboru();
+            }
+        }
+
+
+
+    public static void main(String[] args) {
+
+        {
+            Main a = new Main();
+            a.powitaniePierwsze();
+            a.wczytajNumerWyboru();
+
+
+        }
+    }
+}
